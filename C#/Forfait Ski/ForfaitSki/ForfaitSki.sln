@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForfaitSki", "ForfaitSki\ForfaitSki.csproj", "{98CBE5D1-71E5-4D8B-B516-1EA73602C181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForfaitSkiTests", "ForfaitSkiTests\ForfaitSkiTests.csproj", "{30A32888-3871-4779-9030-73894D805DAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "forfaitSkiSaison", "forfaitSkiSaison\forfaitSkiSaison.csproj", "{7406658B-1809-498B-A0B1-5E0D04FF3EC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerelle", "Passerelle\Passerelle.csproj", "{BB7572BB-36C8-4E2F-A64D-A415C53B3679}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "forfaitSkiSaisonTests", "forfaitSkiSaisonTests\forfaitSkiSaisonTests.csproj", "{CF6CFA54-C8CF-4D66-B236-70A8BBA30713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "skiForfait View", "skiForfait View\skiForfait View.csproj", "{4C4B3FFD-C5E9-4F79-80B9-26482CA518A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98CBE5D1-71E5-4D8B-B516-1EA73602C181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CBE5D1-71E5-4D8B-B516-1EA73602C181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CBE5D1-71E5-4D8B-B516-1EA73602C181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CBE5D1-71E5-4D8B-B516-1EA73602C181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A32888-3871-4779-9030-73894D805DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A32888-3871-4779-9030-73894D805DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A32888-3871-4779-9030-73894D805DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A32888-3871-4779-9030-73894D805DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7406658B-1809-498B-A0B1-5E0D04FF3EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7406658B-1809-498B-A0B1-5E0D04FF3EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7406658B-1809-498B-A0B1-5E0D04FF3EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7406658B-1809-498B-A0B1-5E0D04FF3EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB7572BB-36C8-4E2F-A64D-A415C53B3679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7572BB-36C8-4E2F-A64D-A415C53B3679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7572BB-36C8-4E2F-A64D-A415C53B3679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7572BB-36C8-4E2F-A64D-A415C53B3679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6CFA54-C8CF-4D66-B236-70A8BBA30713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6CFA54-C8CF-4D66-B236-70A8BBA30713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6CFA54-C8CF-4D66-B236-70A8BBA30713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6CFA54-C8CF-4D66-B236-70A8BBA30713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C4B3FFD-C5E9-4F79-80B9-26482CA518A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4B3FFD-C5E9-4F79-80B9-26482CA518A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4B3FFD-C5E9-4F79-80B9-26482CA518A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4B3FFD-C5E9-4F79-80B9-26482CA518A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://jonathanexocsharpb2.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ForfaitSki\\ForfaitSki.csproj
+		SccProjectName1 = ForfaitSki
+		SccLocalPath1 = ForfaitSki
+		SccProjectUniqueName2 = ForfaitSkiTests\\ForfaitSkiTests.csproj
+		SccProjectName2 = ForfaitSkiTests
+		SccLocalPath2 = ForfaitSkiTests
+		SccProjectUniqueName3 = forfaitSkiSaison\\forfaitSkiSaison.csproj
+		SccProjectName3 = forfaitSkiSaison
+		SccLocalPath3 = forfaitSkiSaison
+		SccProjectUniqueName4 = Passerelle\\Passerelle.csproj
+		SccProjectName4 = Passerelle
+		SccLocalPath4 = Passerelle
+		SccProjectUniqueName5 = forfaitSkiSaisonTests\\forfaitSkiSaisonTests.csproj
+		SccProjectName5 = forfaitSkiSaisonTests
+		SccLocalPath5 = forfaitSkiSaisonTests
+		SccProjectUniqueName6 = skiForfait\u0020View\\skiForfait\u0020View.csproj
+		SccProjectName6 = skiForfait\u0020View
+		SccLocalPath6 = skiForfait\u0020View
+	EndGlobalSection
+EndGlobal
