@@ -1,0 +1,28 @@
+{
+  "name": "web",
+  "description": "test",
+  "main": "index.html",
+  "keywords": [
+    "html",
+    "moment",
+    "bower",
+    "test"
+  ],
+  "authors": [
+    "jonathan guittard"
+  ],
+  "license": "unlicensed",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.15.1",
+    "jquery": "^3.1.1"
+  }
+}
