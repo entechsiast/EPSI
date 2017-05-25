@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Encodeur
+namespace Encodeur.View.Code_Cesar
 {
-    public partial class Form1 : Form
+    public partial class CodeCesarView : Form
     {
-        public Form1()
+        public CodeCesarView()
         {
             InitializeComponent();
         }
