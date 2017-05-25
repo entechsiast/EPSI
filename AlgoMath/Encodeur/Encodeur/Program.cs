@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Encodeur.View.Code_Cesar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Encodeur
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Acceuil());
+            Application.Run(new CodeCesarView());
         }
     }
 }

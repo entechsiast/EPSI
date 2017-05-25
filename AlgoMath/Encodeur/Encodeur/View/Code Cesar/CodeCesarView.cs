@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Encodeur.Controller.CodeCesarController;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Encodeur.View.Code_Cesar
         public CodeCesarView()
         {
             InitializeComponent();
+        }
+
+        private void btn_crypter_Click(object sender, EventArgs e)
+        {
+            lbl_RC.Text = fonctions.chiffrer(TBox_crypter.Text, int.Parse(TBox_cle.Text), int.Parse(TBox_modulo.Text));
         }
     }
 }

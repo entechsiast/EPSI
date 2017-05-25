@@ -1,0 +1,10 @@
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\bin\Debug\Encodeur.exe.config
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\bin\Debug\Encodeur.exe
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\bin\Debug\Encodeur.pdb
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\obj\Debug\Encodeur.csprojResolveAssemblyReference.cache
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\obj\Debug\Encodeur.Acceuil.resources
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\obj\Debug\Encodeur.Properties.Resources.resources
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\obj\Debug\Encodeur.View.Code_Cesar.CodeCesarView.resources
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\obj\Debug\Encodeur.csproj.GenerateResource.Cache
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\obj\Debug\Encodeur.exe
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\Encodeur\Encodeur\obj\Debug\Encodeur.pdb

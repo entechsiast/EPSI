@@ -36,6 +36,7 @@
             this.TBox_modulo = new System.Windows.Forms.TextBox();
             this.lbl_resultatCryptage = new System.Windows.Forms.Label();
             this.lbl_RC = new System.Windows.Forms.Label();
+            this.btn_crypter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_txtCrypter
@@ -104,12 +105,23 @@
             this.lbl_RC.TabIndex = 7;
             this.lbl_RC.Text = "X";
             // 
+            // btn_crypter
+            // 
+            this.btn_crypter.Location = new System.Drawing.Point(327, 162);
+            this.btn_crypter.Name = "btn_crypter";
+            this.btn_crypter.Size = new System.Drawing.Size(75, 23);
+            this.btn_crypter.TabIndex = 8;
+            this.btn_crypter.Text = "Crypter";
+            this.btn_crypter.UseVisualStyleBackColor = true;
+            this.btn_crypter.Click += new System.EventHandler(this.btn_crypter_Click);
+            // 
             // CodeCesarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(880, 473);
+            this.Controls.Add(this.btn_crypter);
             this.Controls.Add(this.lbl_RC);
             this.Controls.Add(this.lbl_resultatCryptage);
             this.Controls.Add(this.TBox_modulo);
@@ -135,5 +147,6 @@
         private System.Windows.Forms.TextBox TBox_modulo;
         private System.Windows.Forms.Label lbl_resultatCryptage;
         private System.Windows.Forms.Label lbl_RC;
+        private System.Windows.Forms.Button btn_crypter;
     }
 }
