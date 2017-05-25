@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Encodeur.View.Code_Cesar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,15 @@ namespace Encodeur
         private void codeDeCesarMenuClick_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void crypterMenuItem_Click(object sender, EventArgs e)
+        {
+            CodeCesarView nouvelleFeuilleMDI = new CodeCesarView();
+            // Set the Parent Form of the Child window.
+            nouvelleFeuilleMDI.MdiParent = this;
+            // Display the new form.  
+            nouvelleFeuilleMDI.Show();
         }
     }
 }

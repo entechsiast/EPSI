@@ -8,6 +8,7 @@ namespace Encodeur.Controller.CodeCesarController
 {
     public static class fonctions
     {
+        #region cryptage
         public static string chiffrer(string chaineCaractere, int cle, int modulo)
         {
             //déclaration des variables
@@ -45,5 +46,39 @@ namespace Encodeur.Controller.CodeCesarController
 
             return chaineChiffree;
         }
+        #endregion
+
+        #region decryptage
+        public static string dechiffrer(string chaineADechiffrer, int cle, int modulo)
+        {
+            string laChaineDechiffree = null;
+            char caractereDechiffre;
+
+            // transforme la chaine a dechiffrer en minuscule
+            chaineADechiffrer.ToLower();
+
+            //pour chaque caractère de la chaine a dechiffrer je dois y soustraire la cle
+            foreach(char unCaractere in chaineADechiffrer)
+            {
+                caractereDechiffre = (char)(unCaractere - cle);
+
+                if(caractereDechiffre < 'a')
+                {
+                    //fait la difference entre la valeur du caractère et celle de a
+                    char differenceCharEtA = (char)(unCaractere - 'a');
+                    //valeur a soustraire de z
+                    char diff = (char)(cle - differenceCharEtA);
+                    //soustrait cette différence de la valeur de z et ajoute 1
+                    char differenceAvecZ = (char)(('z' - diff)+1);
+                    //affecte la valeur à caractère dechiffre
+                    caractereDechiffre = differenceAvecZ;
+                }
+
+                laChaineDechiffree += caractereDechiffre;
+            }
+
+            return laChaineDechiffree;
+        }
+        #endregion
     }
 }

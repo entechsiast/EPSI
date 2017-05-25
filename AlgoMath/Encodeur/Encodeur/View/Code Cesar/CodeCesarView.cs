@@ -22,5 +22,10 @@ namespace Encodeur.View.Code_Cesar
         {
             lbl_RC.Text = fonctions.chiffrer(TBox_crypter.Text, int.Parse(TBox_cle.Text), int.Parse(TBox_modulo.Text));
         }
+
+        private void btn_decryptage_Click(object sender, EventArgs e)
+        {
+            lbl_ResultatDecryptage.Text = fonctions.dechiffrer(Tbox_Décryptage.Text, int.Parse(TBox_cleDecryptage.Text), int.Parse(TBox_moduloDecryptage.Text));
+        }
     }
 }

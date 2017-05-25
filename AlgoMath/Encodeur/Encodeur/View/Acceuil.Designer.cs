@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.codeDeCesarMenuClick = new System.Windows.Forms.ToolStripMenuItem();
+            this.crypterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,10 +46,19 @@
             // 
             // codeDeCesarMenuClick
             // 
+            this.codeDeCesarMenuClick.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crypterMenuItem});
             this.codeDeCesarMenuClick.Name = "codeDeCesarMenuClick";
             this.codeDeCesarMenuClick.Size = new System.Drawing.Size(93, 20);
             this.codeDeCesarMenuClick.Text = "Code de cesar";
             this.codeDeCesarMenuClick.Click += new System.EventHandler(this.codeDeCesarMenuClick_Click);
+            // 
+            // crypterMenuItem
+            // 
+            this.crypterMenuItem.Name = "crypterMenuItem";
+            this.crypterMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.crypterMenuItem.Text = "Crypter/Decrypter";
+            this.crypterMenuItem.Click += new System.EventHandler(this.crypterMenuItem_Click);
             // 
             // Acceuil
             // 
@@ -72,6 +82,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem codeDeCesarMenuClick;
+        private System.Windows.Forms.ToolStripMenuItem crypterMenuItem;
     }
 }
 
