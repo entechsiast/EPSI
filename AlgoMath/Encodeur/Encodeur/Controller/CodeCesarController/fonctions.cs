@@ -80,5 +80,44 @@ namespace Encodeur.Controller.CodeCesarController
             return laChaineDechiffree;
         }
         #endregion
+
+        #region alternative de cryptage/decryptage
+        //dans cette partie on ne gère plus les différents caractères de la table ASCII mais directement les lettres de l'alphabet contenues dans un tablea
+
+            // cette méthode est probablement mauvaise car elle repart dans l'autre sens arrivé à z, elle devrait normalement repartir de a comme la méthode de cryptage ci-dessus.
+            // dans ce cas on devrais normalement faire : nombre de décalage - total de lettres pour arriver à zéro , puis ajouter le reste à la valeur de a
+
+        static string Cesar(string value, int shift)
+        {
+            // stocke chaque caractère de la string dans un emplacement du tableau de carcactères
+            // ToCharArray() fait automatiquement la correspondance avec l'alphabet (pas besoin de s'embeter avec les caractères unicodes)
+            char[] stockage = value.ToCharArray();
+
+            //tant que i est inferieur à la valeur de la longueur du tableau (tant que i ne dépasse pas la lettre z (26) on avance dans le tableau (i ++)
+            for (int i = 0; i < stockage.Length; i++)
+            {
+                //pour chaque lettre contenues dans le tableau de caractère on la stocke dans lettre
+                char lettre = stockage[i];
+
+                // la nouvelle lettre est donc égale à la valeur de l'ancienne lettre + le décalage demandé
+                lettre = (char)(lettre + shift);
+
+                // si la valeur de la nouvelle lettre dépasse 26 (valeur de z)
+                if (lettre > 'z')
+                {
+                    // le décalage se fait désormais de la façon suivante
+                    lettre = (char)(lettre - 26);
+                }
+                else if (lettre < 'a')
+                {
+                    lettre = (char)(lettre + 26);
+                }
+
+                stockage[i] = lettre;
+            }
+            return new string(stockage);
+        }
+
+        #endregion
     }
 }
