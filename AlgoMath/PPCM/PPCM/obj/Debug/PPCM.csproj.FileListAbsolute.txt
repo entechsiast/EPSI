@@ -1,0 +1,5 @@
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PPCM\PPCM\bin\Debug\PPCM.exe.config
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PPCM\PPCM\bin\Debug\PPCM.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PPCM\PPCM\bin\Debug\PPCM.pdb
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PPCM\PPCM\obj\Debug\PPCM.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PPCM\PPCM\obj\Debug\PPCM.pdb

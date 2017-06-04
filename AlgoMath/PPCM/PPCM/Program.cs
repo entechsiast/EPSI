@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PGCD
+namespace PPCM
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int nb1, nb2, nb3 ;
+            int nb1, nb2, nb3;
             int plusGrandNombre, plusPetitNombre, quotient;
-            int reste, Dividende,Diviseur,PGCD ; // initialisé à 1 pour entrer dans la boucle
+            int reste, Dividende, Diviseur, PGCD,PPCM; // initialisé à 1 pour entrer dans la boucle
 
             #region UI
             Console.WriteLine("saisissez le 1er nombre");
@@ -21,6 +21,7 @@ namespace PGCD
             Console.WriteLine("saisissez le 2eme nombre");
             nb2 = int.Parse(Console.ReadLine()); // recupère le 2eme nombre
             #endregion
+            #region détermine le PGCD
 
             #region Défini les plus grand et plus petits nombres du couple nb1 nb2
             Dividende = Math.Max(nb1, nb2); // selectionne le plus grand nombre du couple nb1 nb2, qui sera le dividende
@@ -46,9 +47,13 @@ namespace PGCD
                 Dividende = Math.Max(reste, Diviseur);
             }
             PGCD = Diviseur;
-            Console.Write("le PGC de " + nb1 + " et " + nb2 + " est " + PGCD);
 
+            PPCM = (nb1 * nb2) / PGCD;
+
+            Console.WriteLine("Le PPCM est " + PPCM);
             Console.ReadLine();
         }
+        #endregion
+
     }
 }
