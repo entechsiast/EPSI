@@ -1,0 +1,6 @@
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\DecimalToBinaire\DecimalToBinaire\bin\Debug\DecimalToBinaire.exe.config
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\DecimalToBinaire\DecimalToBinaire\bin\Debug\DecimalToBinaire.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\DecimalToBinaire\DecimalToBinaire\bin\Debug\DecimalToBinaire.pdb
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\DecimalToBinaire\DecimalToBinaire\obj\Debug\DecimalToBinaire.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\DecimalToBinaire\DecimalToBinaire\obj\Debug\DecimalToBinaire.pdb
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\DecimalToBinaire\DecimalToBinaire\obj\Debug\DecimalToBinaire.csprojResolveAssemblyReference.cache

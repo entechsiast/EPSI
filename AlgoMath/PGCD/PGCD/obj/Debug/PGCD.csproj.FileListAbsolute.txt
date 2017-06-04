@@ -1,0 +1,6 @@
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PGCD\PGCD\bin\Debug\PGCD.exe.config
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PGCD\PGCD\bin\Debug\PGCD.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PGCD\PGCD\bin\Debug\PGCD.pdb
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PGCD\PGCD\obj\Debug\PGCD.csprojResolveAssemblyReference.cache
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PGCD\PGCD\obj\Debug\PGCD.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\PGCD\PGCD\obj\Debug\PGCD.pdb
