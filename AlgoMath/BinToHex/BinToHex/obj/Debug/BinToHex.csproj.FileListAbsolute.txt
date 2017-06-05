@@ -4,3 +4,9 @@ C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\bin\Debug\BinToHex.p
 C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\obj\Debug\BinToHex.csprojResolveAssemblyReference.cache
 C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\obj\Debug\BinToHex.exe
 C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\obj\Debug\BinToHex.pdb
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\bin\Debug\BinToHex.exe.config
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\bin\Debug\BinToHex.exe
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\bin\Debug\BinToHex.pdb
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\obj\Debug\BinToHex.csprojResolveAssemblyReference.cache
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\obj\Debug\BinToHex.exe
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToHex\BinToHex\obj\Debug\BinToHex.pdb

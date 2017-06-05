@@ -11,19 +11,32 @@ namespace BinToHex
         static void Main(string[] args)
         {
             string binaryNumber;
-            string binaryPacket = "";
             string[] binaryNumberArray;
+            string HexNumber = "";
             //get the user input
             Console.WriteLine("Saisissez le nombre binaire à convertire en HexaDecimal");
             binaryNumber = Console.ReadLine();
 
-            //get a substring of 4 char from the string and store it in an array
-            for(int i = 0; i < binaryNumber.Length; i ++)
+            //vérifie que le nombre de caractères est bien un multiple de 4
+            int isMultipleOfFour = binaryNumber.Count() % 4;
+
+            while(isMultipleOfFour != 0)
             {
-                binaryPacket = binaryNumber.Substring(0, 4);
-                binaryNumber = returnHexFromBinary(binaryPacket);
+                binaryNumber += "0";
+                isMultipleOfFour = binaryNumber.Count() % 4;
             }
-            Console.WriteLine(binaryNumber);
+
+
+
+            //get a substring of 4 char from the string and store it in an array
+            binaryNumberArray = Enumerable.Range(0, binaryNumber.Length / 4).Select(i => binaryNumber.Substring(i * 4, 4)).ToArray();
+
+            //compare each substring of the array and returns a binary value
+            foreach(var substring in binaryNumberArray)
+            {
+                HexNumber += returnHexFromBinary(substring);
+            }
+            Console.WriteLine(HexNumber);
             Console.ReadLine();
         }
 
@@ -52,26 +65,6 @@ namespace BinToHex
             }
 
             return convertedString;
-        }
-
-        static IEnumerable<string> chunkStringIntoPacketsOfFourChar(string str)
-        {
-            int numberOfCharInString = 0;
-            //compte le nombre de caractères dans la string
-            foreach(char unCharactere in str)
-            {
-                numberOfCharInString++;
-            }
-            //si le nombre de caractères dans la string n'est pas un multiple de 4 rajouter des zéros à la fin de la string
-            if(numberOfCharInString % 4 != 0)
-            {
-                str = str + "0";
-                
-
-            }
-            //foreach
-
-            //return Enumerable.Range(0, str.Length / 4)
         }
     }
 }
