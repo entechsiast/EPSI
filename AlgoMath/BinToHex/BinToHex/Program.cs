@@ -10,9 +10,11 @@ namespace BinToHex
     {
         static void Main(string[] args)
         {
+            //variable declaration
             string binaryNumber;
             string[] binaryNumberArray;
             string HexNumber = "";
+
             //get the user input
             Console.WriteLine("Saisissez le nombre binaire à convertire en HexaDecimal");
             binaryNumber = Console.ReadLine();
@@ -36,6 +38,8 @@ namespace BinToHex
             {
                 HexNumber += returnHexFromBinary(substring);
             }
+
+            //output the desired HexNumber
             Console.WriteLine(HexNumber);
             Console.ReadLine();
         }

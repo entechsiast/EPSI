@@ -1,0 +1,6 @@
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToDec\BinToDec\bin\Debug\BinToDec.exe.config
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToDec\BinToDec\bin\Debug\BinToDec.exe
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToDec\BinToDec\bin\Debug\BinToDec.pdb
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToDec\BinToDec\obj\Debug\BinToDec.csprojResolveAssemblyReference.cache
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToDec\BinToDec\obj\Debug\BinToDec.exe
+C:\Users\jonathan\Source\Repos\EPSI\AlgoMath\BinToDec\BinToDec\obj\Debug\BinToDec.pdb
