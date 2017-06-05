@@ -1,0 +1,6 @@
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\HexToBin\HexToBin\bin\Debug\HexToBin.exe.config
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\HexToBin\HexToBin\bin\Debug\HexToBin.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\HexToBin\HexToBin\bin\Debug\HexToBin.pdb
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\HexToBin\HexToBin\obj\Debug\HexToBin.csprojResolveAssemblyReference.cache
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\HexToBin\HexToBin\obj\Debug\HexToBin.exe
+C:\Users\jg_97\Source\Repos\EPSI\AlgoMath\HexToBin\HexToBin\obj\Debug\HexToBin.pdb
