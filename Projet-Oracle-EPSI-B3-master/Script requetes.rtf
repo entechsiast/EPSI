@@ -1,0 +1,288 @@
+
+--Question 2.1 Creation des tables et des contraintes
+CREATE TABLE eleve (
+  e_id NUMBER(10) NULL,
+    CONSTRAINT eleve_pk 
+    PRIMARY KEY (e_id),
+  e_nom VARCHAR(100) NULL,
+  e_prenom VARCHAR(100) NULL,
+  e_date_naiss DATE NULL,
+  e_tel VARCHAR(45) NULL,
+  e_date_dossier DATE NULL,
+  e_date_code DATE NULL);
+  CREATE SEQUENCE eleve_seq START WITH 1 INCREMENT BY 1;
+
+
+CREATE TABLE trajet (
+  t_id NUMBER(10),
+    CONSTRAINT pk_t_id 
+    PRIMARY KEY (t_id),
+  t_date DATE,
+  t_nb_km BINARY_DOUBLE,
+  t_type VARCHAR(50),
+  T_E_ID NUMBER(10),
+  constraint "FK_T_E_ID"
+  foreign key("T_E_ID") 
+  references "ELEVE"("E_ID"));
+  CREATE SEQUENCE trajet_seq 
+  START WITH 1 INCREMENT BY 1;
+
+  CREATE TABLE moniteur (
+  m_id NUMBER(10),
+  CONSTRAINT pk_m_id PRIMARY KEY (m_id),
+  m_nom VARCHAR(45),
+  m_prenom VARCHAR(45),
+  m_l_id NUMBER(10));
+  CREATE SEQUENCE moniteur_seq START WITH 1 INCREMENT BY 1;
+
+  CREATE TABLE "C##USERBDD"."INSCRIPTION" 
+   (	"I_ID" NUMBER(10,0), 
+	"I_DATE_INSCR" DATE, 
+	"I_TYPE" VARCHAR2(45 BYTE), 
+	"I_DATE_EXAMEN" DATE, 
+	"I_RESULTAT" NUMBER(1,0), 
+	"I_NUM" NUMBER(10,0), 
+	"I_E_ID" NUMBER, 
+	 CONSTRAINT "PK_I_ID" PRIMARY KEY ("I_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE, 
+	 CONSTRAINT "FK_I_E_ID" FOREIGN KEY ("I_E_ID")
+	  REFERENCES "C##USERBDD"."ELEVE" ("E_ID") ENABLE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+
+  CREATE SEQUENCE inscription_seq START WITH 1 INCREMENT BY 1;
+
+  CREATE TABLE lecon (
+  "L_ID" NUMBER(10,0), 
+	"L_DATE" DATE, 
+	"L_DUREE" BINARY_DOUBLE, 
+	"L_E_ID" NUMBER(10,0), 
+	"L_M_ID" NUMBER, 
+	 CONSTRAINT "PK_L_ID" PRIMARY KEY ("L_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE, 
+	 CONSTRAINT "FK_L_E_ID" FOREIGN KEY ("L_E_ID")
+	  REFERENCES "C##USERBDD"."ELEVE" ("E_ID") ENABLE, 
+	 CONSTRAINT "FK_L_M_ID" FOREIGN KEY ("L_M_ID")
+	  REFERENCES "C##USERBDD"."MONITEUR" ("M_ID") ENABLE);
+  CREATE SEQUENCE lecon_seq START WITH 1 INCREMENT BY 1;
+
+--Question 2.2 TRIGGER ID Auto-Increment
+CREATE OR REPLACE TRIGGER eleve_AI
+BEFORE INSERT OR UPDATE ON eleve
+	FOR EACH ROW
+BEGIN
+	SELECT eleve_seq.nextval
+	INTO :NEW.e_id
+	FROM dual;
+END;
+
+--Question 2.2 TRIGGER nom/prenom to UPPERCASES
+CREATE OR REPLACE TRIGGER eleve_uppercase
+  BEFORE INSERT OR UPDATE ON eleve
+  FOR EACH ROW
+BEGIN
+  :new.e_nom := upper( :new.e_nom );
+  :new.e_prenom := upper( :new.e_prenom);
+END;
+
+--Question 2.2 TRIGGER DATES
+CREATE OR REPLACE TRIGGER eleve_renseignedate
+  BEFORE INSERT OR UPDATE ON ELEVE
+  FOR EACH ROW
+  BEGIN
+    IF INSERTING THEN 
+      IF :new.e_date_dossier is null
+      THEN  :new.e_date_dossier := SYSDATE;
+      END IF;
+    END IF;  
+    IF UPDATING THEN
+      IF :new.e_date_dossier is null AND :old.e_date_dossier != null
+      THEN :new.e_date_dossier := :old.e_date_dossier;  
+      END IF;
+    END IF;
+END;
+
+--Question 2.3
+-- INSERER D'ABORD LE JEUX D'ESSAIS /!\ MONITEUR /!\
+--voir script jeux d'essai section élève
+
+--Question 2.4:
+ALTER TABLE eleve ADD e_nb_km BINARY_DOUBLE;
+ALTER TABLE eleve ADD e_nbh_lecons BINARY_DOUBLE;
+
+--INSERTION DE DONNEES DANS LES TABLES LECON ET TRAJET 
+--VOIR SCRIPT JEUX D ESSAIS SECTIONS LECON ET TRAJETS
+
+--Question 2.5:
+UPDATE ELEVE
+Set e_nb_km =
+(SELECT  SUM(t_nb_km)
+FROM TRAJET
+WHERE eleve.e_id = trajet.t_e_id)
+WHERE EXISTS(
+SELECT 1
+FROM Trajet
+WHERE eleve.e_id = trajet.t_e_id);
+
+UPDATE ELEVE
+Set E_NBH_LECONS =
+(SELECT  SUM(l_duree)
+FROM LECON
+WHERE eleve.e_id = lecon.l_e_id)
+WHERE EXISTS(
+SELECT 1
+FROM lecon
+WHERE eleve.e_id = lecon.L_E_ID);
+
+--Question 2.6:
+CREATE OR REPLACE TRIGGER chek_redundancy_trajet_eleve
+BEFORE INSERT OR UPDATE ON TRAJET
+FOR EACH ROW
+BEGIN
+    UPDATE ELEVE
+    SET e_nb_km = e_nb_km + :new.t_nb_km
+    WHERE :new.t_e_id = eleve.e_id;
+END;
+
+CREATE OR REPLACE TRIGGER chek_redundancy_lecon_eleve
+BEFORE INSERT OR UPDATE ON LECON
+FOR EACH ROW
+BEGIN
+    UPDATE ELEVE
+    SET E_NBH_LECONS = E_NBH_LECONS + :new.l_duree
+    WHERE :new.l_e_id = eleve.e_id;
+END;
+
+--Question 2.8/2.9/2.10:
+create or replace package paq_conduite as
+
+procedure inscrire_conduite(id_eleve eleve.e_id%type, la_date_inscr inscription.i_date_inscr%type := sysdate, le_type inscription.i_type%type);
+
+procedure inscrire_examen(id_eleve eleve.e_id%type, la_date_examen inscription.i_date_exam%type);
+
+procedure resultat_examen(id_eleve eleve.e_id%type, le_resultat inscription.i_resultat%type);
+
+ELEVE_INCONNU Exception;
+pragma exception_init(ELEVE_INCONNU, -20099);
+PAS_DE_CODE Exception;
+pragma exception_init(PAS_DE_CODE, -20100);
+PB_AGE Exception;
+pragma exception_init(PB_AGE, -20101);
+PB_CONDITION Exception;
+pragma exception_init(PB_CONDITION, -20102);
+DATE_DEJA_PRISE Exception;
+pragma exception_init(DATE_DEJA_PRISE, -20103);
+
+end paq_conduite;
+
+---------2.11
+----1)
+SELECT m_id,m_nom,m_prenom,l_duree
+FROM moniteur
+left outer join lecon
+on lecon.l_m_id = moniteur.m_id
+    
+----2)
+SELECT m_id,m_nom,m_prenom
+FROM moniteur
+left outer join lecon
+on lecon.l_m_id = moniteur.m_id
+WHERE ROWNUM <= 10
+ORDER BY l_duree asc
+
+----3)
+SELECT t_type, t_nb_km,e_nom,e_prenom,e_id,
+(SELECT count(t_type) FROM trajet WHERE t_type 
+like 'route' and t_e_id = e_id) as nb_route
+FROM trajet,eleve
+
+-------1 = examen non obtenu 2= examen non passé
+----4)
+Select e_nom, e_prenom, I_DATE_EXAMEN
+FROM eleve,inscription,dual
+WHERE i_resultat = 1 AND I_DATE_EXAMEN >= TRUNC(SYSDATE) - interval '1' year
+
+----5)
+Select e_nom, e_prenom, I_DATE_EXAMEN
+FROM eleve,inscription
+WHERE i_resultat = 1 
+  OR i_resultat = 2 
+  AND I_DATE_EXAMEN >= TRUNC(SYSDATE) - interval '1' year;
+
+--SPEED DB CREATION SCRIPT
+ CREATE TABLE eleve (
+  e_id NUMBER(10) NULL,
+    CONSTRAINT eleve_pk 
+    PRIMARY KEY (e_id),
+  e_nom VARCHAR(100) NULL,
+  e_prenom VARCHAR(100) NULL,
+  e_date_naiss DATE NULL,
+  e_tel VARCHAR(45) NULL,
+  e_date_dossier DATE NULL,
+  e_date_code DATE NULL);
+  CREATE SEQUENCE eleve_seq START WITH 1 INCREMENT BY 1;
+  ALTER TABLE eleve ADD e_nb_km BINARY_DOUBLE;
+  ALTER TABLE eleve ADD e_nbh_lecons BINARY_DOUBLE;
+
+
+CREATE TABLE trajet (
+  t_id NUMBER(10),
+    CONSTRAINT pk_t_id 
+    PRIMARY KEY (t_id),
+  t_date DATE,
+  t_nb_km NUMBER,
+  t_type VARCHAR(50),
+  T_E_ID NUMBER(10),
+  constraint "FK_T_E_ID"
+  foreign key("T_E_ID") 
+  references "ELEVE"("E_ID"));
+  CREATE SEQUENCE trajet_seq 
+  START WITH 1 INCREMENT BY 1;
+
+  CREATE TABLE moniteur (
+  m_id NUMBER(10),
+  CONSTRAINT pk_m_id PRIMARY KEY (m_id),
+  m_nom VARCHAR(45),
+  m_prenom VARCHAR(45),
+  m_l_id NUMBER(10));
+  CREATE SEQUENCE moniteur_seq START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE lecon (
+  "L_ID" NUMBER(10), 
+	"L_DATE" DATE, 
+	"L_DUREE" BINARY_DOUBLE, 
+	"L_E_ID" NUMBER(10), 
+	"L_M_ID" NUMBER, 
+	 CONSTRAINT "PK_L_ID" PRIMARY KEY ("L_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE, 
+	 CONSTRAINT "FK_L_E_ID" FOREIGN KEY ("L_E_ID")
+	  REFERENCES "C##USERBDD"."ELEVE" ("E_ID") ENABLE, 
+	 CONSTRAINT "FK_L_M_ID" FOREIGN KEY ("L_M_ID")
+	  REFERENCES "C##USERBDD"."MONITEUR" ("M_ID") ENABLE);
+    CREATE SEQUENCE lecon_seq START WITH 1 INCREMENT BY 1;
+
+  CREATE TABLE inscription (
+  "I_ID" NUMBER(10), 
+	"I_DATE_INSCR" DATE, 
+	"I_TYPE" VARCHAR2(45 BYTE), 
+	"I_DATE_EXAMEN" DATE, 
+	"I_RESULTAT" NUMBER(10), 
+	"I_NUM" NUMBER(10), 
+	 CONSTRAINT "PK_I_ID" PRIMARY KEY ("I_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE, 
+	 CONSTRAINT "FK_I_E_ID" FOREIGN KEY ("I_ID")
+	  REFERENCES "C##USERBDD"."ELEVE" ("E_ID") ENABLE);
+
+  CREATE SEQUENCE inscription_seq START WITH 1 INCREMENT BY 1;

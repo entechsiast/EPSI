@@ -1,0 +1,36 @@
+-------------------------------------------------------------Helpers---------------------------------------------------------
+
+--Creation d'un nouveau user car on ne peut créer de trigger avec SYS
+CREATE USER c##userbdd IDENTIFIED BY passwordbdd;
+GRANT CREATE SESSION TO c##userbdd;
+GRANT CREATE SESSION TO c##userbdd;
+GRANT CREATE table TO c##userbdd;
+GRANT CREATE view TO c##userbdd;
+GRANT CREATE any trigger TO c##userbdd;
+GRANT CREATE any procedure TO c##userbdd;
+GRANT CREATE sequence TO c##userbdd;
+GRANT CREATE synonym TO c##userbdd;
+
+-- ajout des clés étrangères pour le calcul de nbh et nbkm
+ALTER TABLE LECON ADD FK_E_ID INTEGER;
+ALTER TABLE TRAJET ADD FK_E_ID INTEGER;
+
+-- update eleve
+UPDATE ELEVE
+SET e_date_dossier = null
+WHERE e_id = 0;
+
+--drop trigger
+drop trigger eleve_insert_update;
+
+--suppression des tables
+DROP TABLE trajet;
+DROP TABLE lecon;
+DROP TABLE moniteur;
+DROP TABLE inscription;
+DROP TABLE eleve;
+DROP SEQUENCE trajet_seq;
+DROP SEQUENCE eleve_seq;
+DROP SEQUENCE lecon_seq;
+DROP SEQUENCE moniteur_seq;
+DROP SEQUENCE inscription_seq;
